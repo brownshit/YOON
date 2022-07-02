@@ -1,0 +1,61 @@
+//Ring print
+#include<iostream>
+using namespace std;
+
+class Point {
+	int xpos, ypos;
+
+public:
+	void Init(int x, int y)
+	{
+		xpos = x; ypos = y;
+	}
+	void showPointinfo()const
+	{
+		cout << "[" << xpos << "," << ypos << "]" << endl;
+	}
+};
+
+//여기만 짜면 된다.
+class circle {
+	int rpos;
+	Point myp;
+public:
+	void Init(int a, int b, int c)
+	{
+		myp.Init(a, b);
+		rpos = c;
+	}
+	void ShowCircleinfo()
+	{	
+		cout << "radius : " << rpos << endl;;
+		myp.showPointinfo();
+	}
+};
+
+class Ring {
+	circle c1, c2;
+public:
+	void Init(int a, int b, int c, int d, int e, int f){
+		c1.Init(a, b, c);
+		c2.Init(d, e, f);
+	}
+	void ShowRinginfo(){
+		cout << "Inner Circle Info..." << endl;
+		c1.ShowCircleinfo();
+		cout << "Outter Circle Info..." << endl;
+		c2.ShowCircleinfo();
+
+	}
+};
+
+
+int main(void) 
+{
+	
+	Ring ring;
+	ring.Init(1, 1, 4, 2, 2, 9);
+	ring.ShowRinginfo();
+
+	return 0; 
+}

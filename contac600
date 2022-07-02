@@ -1,0 +1,48 @@
+//캡슐화
+#include<iostream>
+using namespace std;
+
+
+class sinivelcap{
+public:
+	void Take()const { cout << "콧물이 싹 납니다." << endl; }
+};
+
+class sneezecap {
+public:
+	void Take()const { cout << "재채기가 멎습니다." << endl; }
+};
+
+class snufflecap{
+public:
+	void Take()const { cout << "코가 뻥 뚫립니다." << endl; }
+};
+
+class contac600 {
+private:
+	sinivelcap sin;
+	sneezecap sne;
+	snufflecap snu;
+public:
+	void Take()const
+	{
+		sin.Take();
+		sne.Take();
+		snu.Take();
+	}
+};
+
+class coldpatient {
+public:
+	void Takecontac600(const contac600& cap) const { cap.Take(); }
+};
+
+int main(void) 
+{
+	contac600 cap;
+
+	coldpatient sufferer;
+	
+	sufferer.Takecontac600(cap);
+	return 0; 
+}

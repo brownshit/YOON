@@ -32,11 +32,39 @@ int main(void)
 	simpleclass sc1;
 	sc1.showdata();
 
-	simpleclass sc2(100);
-	sc2.showdata();
+	//simpleclass sc2(100); 과 같다
+	simpleclass *ptr2 = new simpleclass(100);
+	ptr2->showdata();
 
 	simpleclass sc3(100, 200);
 	sc3.showdata();
 
 	return 0;
 }
+
+/*
+int main(void)
+{
+	int H, M;
+	cin >> H; cin >> M;
+	if (M > 45)
+	{
+		M -= 45;
+		cout << H << " " << M << endl;
+	}
+	else
+	{
+		M += 15;
+		if (H == 0)
+		{
+			H = 23;
+		}
+		else
+		{
+			H -= 1;
+		}
+		cout << H << " " << M << endl;
+	}
+
+	return 0;
+}*/

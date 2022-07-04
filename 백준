@@ -1,0 +1,30 @@
+//속도향상_백준 15552
+#include<iostream>
+using namespace std;
+int main(void)
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int Num = 0;
+	cin >> Num;
+
+	int** ptr = new int* [Num];
+	for (int i = 0; i < Num; i++)
+	{
+		ptr[i] = new int[2];
+	}
+
+	for (int i = 0; i < Num; i++)
+	{
+		cin >> ptr[i][0]; cin >> ptr[i][1];
+	}
+
+	for (int i = 0; i < Num; i++)
+	{
+		cout<<ptr[i][0] + ptr[i][1]<<"\n";
+	}
+
+	delete[] ptr;
+	return 0;
+}

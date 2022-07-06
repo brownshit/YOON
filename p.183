@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+class AAA {
+public:
+	AAA()
+	{
+		cout << "empty object" << endl;
+	}
+	void showyourname()
+	{
+		cout << "im class AAA" << endl;
+	}
+};
+
+class BBB {
+	AAA& ref;
+	const int& num;//num변수는 상수가 되어버린다. 한번 초기화되면.
+public:
+	BBB(AAA& r, const int& n):ref(r), num(n){ }
+	void showyourname()
+	{
+		ref.showyourname();
+		cout << "and" << endl;
+		cout << "I ref num" << num << endl;
+	}
+};
+
+int main()
+{
+	AAA obj1;
+	BBB obj2(obj1, 20);
+	obj2.showyourname();
+	return 0;
+}

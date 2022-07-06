@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+
+class point {
+	int x;
+	int y;
+public:
+	point(const int& xpos, const int& ypos);
+	int getx() const;
+	int gety() const;
+	bool setx(int xpos);
+	bool sety(int ypos);
+};
+
+class rectangle {
+	point upleft; point lowright;
+public:
+	rectangle(const int& x1, const int& y1, const int& x2, const int& y2);
+	void showrecinfo() const;
+};
+
+point::point(const int &xpos, const int &ypos) { x = xpos, y = ypos; }
+int point::getx() const { return x; }
+int point::gety() const { return y; }
+
+bool point::setx(int xp) {
+	if (0 > xp || xp > 100)
+	{
+		cout << "벗어난 범위의 값 전달" << endl;
+		return false;
+	}
+	x = xp;
+	return true;
+}
+bool point::sety(int yp)
+{
+	if (0 > yp || yp > 100)
+	{
+		cout << "벗어난 범위의 값 전달" << endl;
+		return false;
+	}
+	y = yp;
+	return true;
+}
+
+rectangle::rectangle(const int& x1, const int& y1, const int& x2, const int& y2)
+	:upleft(x1, y1), lowright(x2, y2)
+{
+	//empty
+}
+
+void rectangle::showrecinfo() const
+{
+	cout << "upleft" << "[" << upleft.getx() << ","<<upleft.gety() << "]" << endl;
+	cout<<"lowright" << "[" << lowright.getx() << "," << lowright.gety() << "]" << endl;
+}
+
+int main(void)
+{
+	rectangle rec(1, 1, 5, 5);
+	rec.showrecinfo();
+	return 0;
+}

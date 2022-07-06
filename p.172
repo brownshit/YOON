@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+class simpleclass {
+	int n1; int n2;
+public:
+	simpleclass(int n1 = 0, int n2 = 0) {
+		this->n1 = n1; this->n2 = n2;
+	}
+	void showdata()const {
+		cout << n1 << " " << n2 << endl;
+	}
+};
+
+int main()
+{
+	simpleclass sc1(); //simpleclass 형 함수
+	simpleclass mysc = sc1(); //객체에 함수 대입
+
+	mysc.showdata();
+
+	return 0;
+}
+
+simpleclass sc1()
+{
+	simpleclass sc(20, 30);
+	return sc;
+}

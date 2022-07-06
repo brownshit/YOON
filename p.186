@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+class AAA {
+	int num;
+	AAA(int n): num(n){}//생성자를 private선언을 해주었다.
+public:
+	AAA():num(0){ }// num = 0으로 선언하는 정의 생성자
+	AAA& createinitobj(int n) const {
+		AAA* ptr = new AAA(n);
+		for (int i = 0; i < n; i++)
+		{
+			cout << endl;
+		}
+		return *ptr;
+	}//AAA객체생성자가 프라이빗 선언, 함수 내부에서는 생성이 가능하지만, 외부에서는 생성이 불가능해진다. 
+	void shownum()const {
+		cout << num << endl;
+	}
+};
+
+int main()
+{
+	AAA base;
+	base.shownum();
+
+	AAA& obj1 = base.createinitobj(3);//n == 3으로는 바로 생성이 안된다. 무조건, 함수를 통한 생성만 가능해진다.
+	obj1.shownum();
+
+	AAA& obj2 = base.createinitobj(12);
+	obj2.shownum();
+
+	delete& obj2; delete& obj1;
+	return 0;
+}
